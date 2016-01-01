@@ -1,3 +1,7 @@
+# goal o a maze node is to "pre-load" logic of traversing the maze.
+# Each element will be stored by rows within an array, but will also contain pointers to all its neighbor nodes
+
+
 
 class MazeNode
 
@@ -10,6 +14,7 @@ class MazeNode
     @up_edge = nil
   end
 
+  # this might not be necessary
   def edges?
   end
 

@@ -25,7 +25,7 @@ What do I need to know to "model" this structure?
     FOR the starting space
       GO right
       if you can't go right, GO DOWN
-      if you can't go right, GO LEFT
+      if you can't go down, GO LEFT
       if you can't go left, GO UP
    IF you find yourself away from starting space (current space != starting space)
    Go back to the starting space and continue search pattern

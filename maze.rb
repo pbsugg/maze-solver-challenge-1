@@ -1,17 +1,16 @@
 
 class Maze
 
-
-
   # open the file
   # read a line
   # FOR each line
+    # create a new array
     # UNTIL you find a newline
-    # put it in an array
-    # once you hit the newline character, start a new array
-  # return array of arrays
+    # make each part a unique element within the array
+  # return the array of arrays
   def process_maze(file)
-    stream = (file, "r")
+    input_file = File.open(file, mode="r")
+    input_file = []
   end
 
   # get the starting point of the maze
