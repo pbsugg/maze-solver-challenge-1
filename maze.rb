@@ -15,9 +15,15 @@ class Maze
       row.split('')
     end
   end
-  
-  # get the starting point of the maze
+
+  # get the starting node of the maze
   def get_start(processed_maze)
+    # start_horizontal; start_vertical = nil
+    processed_maze.each do |row|
+      row.each do |item|
+        return item if item == 'o'
+      end
+    end
   end
 
   # print the "array'd" maze

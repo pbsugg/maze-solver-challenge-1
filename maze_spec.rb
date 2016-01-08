@@ -1,5 +1,5 @@
 require_relative 'maze.rb'
-
+require_relative 'maze_node.rb'
 
 describe "Maze" do
 
@@ -15,19 +15,43 @@ describe "Maze" do
       expect(array.length).to eq(5)
     end
 
-    it 'processes each line correctly' do
+    it 'processes the first line correctly (each part is an individual element)' do
       return_array = sample_maze.process_maze(file1)
       expect(return_array.first.first).to eq('o')
       expect(return_array.first.last).to eq('.')
     end
 
+    it 'processes the last line correctly' do
+      return_array = sample_maze.process_maze(file1)
+      expect(return_array.last.first).to eq('.')
+      expect(return_array.last.last).to eq('#')
+    end
+
   end
+
+  context 'processes all edges' do
+
+  end
+
+
+  context 'get_start' do
+
+    it 'finds the start of the maze and returns it' do
+      processed_maze = sample_maze.process_maze(file1)
+      expect(sample_maze.get_start(processed_maze)).to eq('o')
+    end
+
+    it 'should return the item as a maze_node (maze already processed)' do
+      processed_maze = sample_maze.process_maze(file1)
+      expect(sample_maze.get_start(processed_maze)).to be_kind_of(MazeNode)
+    end
+
+  end
+
 
   it 'can print the maze back out in comprehensible form'
 
-  it 'finds the start of the maze and holds the value'
 
-  it 'processes all edges'
 
 
 
