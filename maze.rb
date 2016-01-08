@@ -9,10 +9,13 @@ class Maze
     # make each part a unique element within the array
   # return the array of arrays
   def process_maze(file)
-    input_file = File.open(file, mode="r")
-    input_file = []
+    presplit_return_array = File.readlines(file)
+    split_return_array = presplit_return_array.map do |row|
+      row.chomp!
+      row.split('')
+    end
   end
-
+  
   # get the starting point of the maze
   def get_start(processed_maze)
   end
