@@ -8,7 +8,7 @@ class Maze
     # UNTIL you find a newline
     # make each part a unique element within the array
   # return the array of arrays
-  def process_maze(file)
+  def convert_maze_to_array(file)
     presplit_return_array = File.readlines(file)
     split_return_array = presplit_return_array.map do |row|
       row.chomp!
@@ -26,15 +26,18 @@ class Maze
     end
   end
 
+  def process_string_elements_into_maze_nodes(arrayed_maze)
+    # arrayed_maze.each do |row|
+    #   row.map
+  end
+
   # print the "array'd" maze
   def print_maze(maze_array)
   end
 
-  private
 
-  def find_edges
 
-  end
+
 
 
 end
