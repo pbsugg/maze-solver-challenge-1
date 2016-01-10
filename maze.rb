@@ -1,3 +1,5 @@
+require_relative "maze_node.rb"
+
 
 class Maze
 
@@ -26,9 +28,37 @@ class Maze
     end
   end
 
-  def process_string_elements_into_maze_nodes(arrayed_maze)
-    # arrayed_maze.each do |row|
-    #   row.map
+
+  # go through the maze, make all elements into nodes
+  # not mapped yet, just nodes
+  def make_all_string_elements_into_maze_nodes(string_array)
+    string_array.each do |row|
+      row.map! do |item|
+        MazeNode.new(item)
+      end
+    end
+    string_array
+  end
+
+
+  def get
+
+  # look right, down, left, up
+  def process_maze_node_neighbors(mazenode_array)
+    mazenode_array.each_with_index do |row, row_index|
+      row.each_with_index do |maze_node, item_index|
+        # formula for getting the surrounding spaces to a node
+        maze_node.right_edge = row[item_index + 1]
+        if mazenode_array[row_index + 1]
+          maze_node.up_edge = mazenode_array[row_index + 1][item_index]
+        end
+        maze_node.left_edge = row[item_index - 1]
+        if mazenode_array[row_index + 1]
+          maze_node.up_edge = mazenode_array[row_index - 1][item_index]
+        end
+      end
+    end
+    mazenode_array
   end
 
   # print the "array'd" maze

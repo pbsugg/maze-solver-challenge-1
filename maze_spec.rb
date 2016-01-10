@@ -32,8 +32,9 @@ describe "Maze" do
   context 'processes all string elements into MazeNodes correctly' do
 
     let(:arrayed_maze){sample_maze.convert_maze_to_array(file1)}
-    let(:processed_maze){sample_maze.process_string_elements_into_maze_nodes(arrayed_maze)}
-    let(:random_maze_element){processed_maze[rand(1..9)][rand(1..9)]}
+    let(:noded_maze){sample_maze.make_all_string_elements_into_maze_nodes(arrayed_maze)}
+    let(:processed_maze){sample_maze.process_maze_node_neighbors(noded_maze)}
+    let(:random_maze_element){processed_maze[rand(0..9)][rand(0..9)]}
 
     it 'makes all the elements into MazeNodes' do
       expect(random_maze_element).to be_kind_of(MazeNode)
@@ -67,6 +68,7 @@ describe "Maze" do
       processed_maze = sample_maze.convert_maze_to_array(file1)
       expect(sample_maze.get_start(processed_maze)).to be_kind_of(MazeNode)
     end
+
 
   end
 
