@@ -3,6 +3,11 @@ require_relative "maze_node.rb"
 
 class Maze
 
+  def initialize
+    @start_horizontal = nil
+    @start_vertical = nil
+  end
+
   # open the file
   # read a line
   # FOR each line

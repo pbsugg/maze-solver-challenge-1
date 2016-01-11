@@ -8,7 +8,7 @@ class MazeNode
   attr_accessor :value, :right_edge, :down_edge, :left_edge, :up_edge
 
   def initialize(value)
-    @value = value
+  @value = value
   end
 
 
