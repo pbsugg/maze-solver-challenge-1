@@ -10,36 +10,45 @@ require_relative 'maze.rb'
 
 class MazeRunner
 
-  attr_accessor :current_horizontal, :current_vertical
+  attr_accessor :maze
 
-  def initialize
-    @current_horizontal = nil
-    @current_vertical = nil
+  # maze has already been processed at this stage
+  def initialize(maze_object)
+    @maze = maze_object.processed_maze
+  end
+
+  # all the possible movements: look right, down, left, up
+  # either update current position or give new position
+  # getting vertical and horizontal coordinates w/i the maze
+  def check_up(vertical, horizontal)
+    @maze[vertical - 1][horizontal] if (vertical - 1) >= 0
+  end
+
+  def check_right(vertical, horizontal)
+    @maze[vertical][horizontal + 1] if (horizontal + 1) >= 0
+  end
+
+  def check_down(vertical, horizontal)
+    @maze[vertical + 1][horizontal] if (vertical + 1) >= 0
+  end
+
+  def check_left(vertical, horizontal)
+    @maze[vertical][horizontal - 1] if (horizontal - 1) >= 0
   end
 
 
-  # look right, down, left, up
-  # remember to update current position as well
-  def go_up(position)
-    if mazenode_array[row_index + 1]
-      maze_node.up_edge = mazenode_array[row_index + 1][item_index]
-    end
+  # "position" is an array with two elements, formatted [y, x] coordinates
+  # movement returns a new position
+  def move_right(current_position)
   end
 
-  def go_right(position)
-
-    maze_node.right_edge = row[item_index + 1]
+  def move_down(current_position)
   end
 
-  def go_down(position)
-    if mazenode_array[row_index + 1]
-      maze_node.up_edge = mazenode_array[row_index - 1][item_index]
-    end
+  def move_left(current_position)
   end
 
-  def go_left(position)
-    maze_node.left_edge = row[item_index - 1]
+  def move_up(current_position)
   end
-
 
 end

@@ -4,11 +4,13 @@ require_relative "maze_node.rb"
 class Maze
 
 
-  attr_accessor :start_horizontal, :start_vertical
+  attr_accessor :start_horizontal, :start_vertical, :processed_maze
 
+  # x and y coordinates start out 0
   def initialize
-    @start_horizontal = nil
     @start_vertical = nil
+    @start_horizontal = nil
+    @processed_maze = nil
   end
 
   # open the file
@@ -19,8 +21,8 @@ class Maze
     # make each part a unique element within the array
   # return the array of arrays
   def convert_maze_to_array(file)
-    presplit_return_array = File.readlines(file)
-    split_return_array = presplit_return_array.map do |row|
+    @processed_maze = File.readlines(file)
+    @processed_maze = @processed_maze.map do |row|
       row.chomp!
       row.split('')
     end
@@ -32,8 +34,8 @@ class Maze
     processed_maze.each_with_index do |row, row_index|
       row.each_with_index do |item, item_index|
         if item == 'o'
-          @start_horizontal = row_index
-          @start_vertical = item_index
+          @start_vertical = row_index
+          @start_horizontal = item_index
         end
       end
     end
