@@ -34,8 +34,8 @@ class Maze
     processed_maze.each_with_index do |row, row_index|
       row.each_with_index do |item, item_index|
         if item == 'o'
-          @start_horizontal = row_index
-          @start_vertical = item_index
+          @start_vertical = row_index
+          @start_horizontal = item_index
         end
       end
     end

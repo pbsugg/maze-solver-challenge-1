@@ -18,21 +18,21 @@ describe "MazeRunner" do
   context "check positions from start" do
 
     it "check right" do
-      expect(maze_runner.check_right([start_vertical, start_horizontal])).to eq("#")
+      expect(maze_runner.check_right(sample_maze.start_vertical, sample_maze.start_horizontal)).to eq("#")
     end
 
 
     it "check down" do
-      expect(maze_runner.check_down([start_vertical, start_horizontal])).to eq(".")
+      expect(maze_runner.check_down(sample_maze.start_vertical, sample_maze.start_horizontal)).to eq(".")
     end
 
 
     it "check left" do
-      expect(maze_runner.check_down([start_vertical, start_horizontal])).to eq(nil)
+      expect(maze_runner.check_left(sample_maze.start_vertical, sample_maze.start_horizontal)).to eq(nil)
     end
 
     it "check up" do
-      expect(maze_runner.check_down([start_vertical, start_horizontal])).to eq(nil)
+      expect(maze_runner.check_up(sample_maze.start_vertical, sample_maze.start_horizontal)).to eq(nil)
     end
 
   end
@@ -40,21 +40,21 @@ describe "MazeRunner" do
   context "check position from non-start" do
 
     it "check right" do
-      expect(maze_runner.check_right([3,3])).to eq("#")
+      expect(maze_runner.check_right(3, 3)).to eq("#")
     end
 
 
     it "check down" do
-      expect(maze_runner.check_down([3,3])).to eq(".")
+      expect(maze_runner.check_down(3, 3)).to eq(".")
     end
 
 
     it "check left" do
-      expect(maze_runner.check_down([3,3])).to eq("#")
+      expect(maze_runner.check_down(3, 3)).to eq(".")
     end
 
     it "check up" do
-      expect(maze_runner.check_down([3,3])).to eq(".")
+      expect(maze_runner.check_down(3, 3)).to eq(".")
     end
 
   end
