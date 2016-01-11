@@ -41,7 +41,6 @@ describe "Maze" do
 
     it 'keeps everything in correct order in the array' do
 
-    end
 
   end
 
