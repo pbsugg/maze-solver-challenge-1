@@ -34,12 +34,9 @@ describe "Maze" do
     let(:arrayed_maze){sample_maze.convert_maze_to_array(file1)}
     let(:random_maze_element){processed_maze[rand(0..9)][rand(0..9)]}
 
-    it 'correctly discerns all the edge elements of a node' do
-      first_space = arrayed_maze[0][0]
+    it 'correctly discerns all the edge elements of a node'
 
-    end
-
-    it 'keeps everything in correct order in the array' do
+    it 'keeps everything in correct order in the array'
 
 
   end

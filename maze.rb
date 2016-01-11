@@ -6,9 +6,10 @@ class Maze
 
   attr_accessor :start_horizontal, :start_vertical
 
+  # x and y coordinates start out 0
   def initialize
-    @start_horizontal = nil
     @start_vertical = nil
+    @start_horizontal = nil
   end
 
   # open the file
