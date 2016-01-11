@@ -3,9 +3,9 @@
 
 describe "Maze Node" do
 
-  it 'can discover its neighbor nodes in four directions'
+  it 'holds its neighbor nodes in four directions'
 
-  it 'finds its neighbors in the correct order (right, down, left, up)' 
+  it 'finds its neighbors in the correct order (right, down, left, up)'
 
 
 end

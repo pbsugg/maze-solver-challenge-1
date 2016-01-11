@@ -32,21 +32,11 @@ describe "Maze" do
   context 'processes all string elements into MazeNodes correctly' do
 
     let(:arrayed_maze){sample_maze.convert_maze_to_array(file1)}
-    let(:processed_maze){sample_maze.process_string_elements_into_maze_nodes(arrayed_maze)}
-    let(:random_maze_element){processed_maze[rand(1..9)][rand(1..9)]}
-
-    it 'makes all the elements into MazeNodes' do
-      expect(random_maze_element).to be_kind_of(MazeNode)
-      expect(random_maze_element).to respond_to(:right_edge)
-
-    end
+    let(:random_maze_element){processed_maze[rand(0..9)][rand(0..9)]}
 
     it 'correctly discerns all the edge elements of a node' do
-      first_space = processed_maze[0][0]
-      expect(first_space.value).to eq('o')
-      expect(first_space.right_edge.value).to eq('#')
-      expect(first_space.down_edge.value).to eq('.')
-      expect(first_space.up_edge.value).to eq(nil)
+      first_space = arrayed_maze[0][0]
+
     end
 
     it 'keeps everything in correct order in the array' do
@@ -60,13 +50,11 @@ describe "Maze" do
 
     it 'finds the start of the maze and returns it' do
       processed_maze = sample_maze.convert_maze_to_array(file1)
-      expect(sample_maze.get_start(processed_maze)).to eq('o')
+      sample_maze.get_start(processed_maze)
+      expect(sample_maze.start_horizontal).to eq(0)
+      expect(sample_maze.start_vertical).to eq(0)
     end
 
-    it 'should return the item as a maze_node (maze already processed)' do
-      processed_maze = sample_maze.convert_maze_to_array(file1)
-      expect(sample_maze.get_start(processed_maze)).to be_kind_of(MazeNode)
-    end
 
   end
 

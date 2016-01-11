@@ -38,3 +38,21 @@ What do I need to know to "model" this structure?
     FOR all edge nodes
       put them in the queue
       etc.
+[]
+
+
+1/10--Strategy
+At least three classes:
+
+Maze
+
+  Processes the text file into an array of arrays
+  Array of arrays
+  Knows:
+    Its own starting point
+
+MazeRunner
+
+  Knows:
+    Its current Position
+    How to look at four positions around the current position (these are methods)

@@ -5,18 +5,10 @@
 
 class MazeNode
 
-  attr_reader :right_edge, :down_edge, :left_edge, :up_edge
+  attr_accessor :value, :right_edge, :down_edge, :left_edge, :up_edge
 
-  def initialize
-    @value = nil
-    @right_edge = nil
-    @down_edge = nil
-    @left_edge = nil
-    @up_edge = nil
-  end
-
-  # this might not be necessary
-  def edges?
+  def initialize(value)
+  @value = value
   end
 
 
