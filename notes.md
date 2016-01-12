@@ -35,8 +35,9 @@ What do I need to know to "model" this structure?
  4) Pseudo solution #2 (breadth first)
     FOR the starting node, get all of its edge nodes
       put them in the queue
-    FOR all edge nodes
-      put them in the queue
+      perform possible edge node movement
+    FOR all NEW edge nodes
+      put them in the queue, etc.
       etc.
 []
 

@@ -61,10 +61,27 @@ describe "MazeRunner" do
 
   context "change position" do
 
-    it "changes the array object to an X "
+    let(:start_position){[maze_runner.start_vertical, maze_runner.start_horizontal]}
+    let(:random_position){[rand(0..9), rand(0..9)]}
 
-    it "returns the new position"
+    it "changes the array object to an X if movement possible" do
+      maze_runner.move_down(start_position[0], start_position[1])
+      expect(maze_runner.maze[1][0]).to eq("x")
+    end
 
+    it "returns the new position if movement possible" do
+      expect(maze_runner.move_down(start_position[0], start_position[1])).to eq([1,0])
+
+    end
+
+    it "returns the same position if movement not possible" do
+      expect(maze_runner.move_right(start_position[0], start_position[1])).to eq([0,0])
+    end
+
+    it "does not change the board if movement not possible" do
+      maze_runner.move_right(start_position[0], start_position[1])
+      expect(maze_runner.maze[0][1]).to eq("#")
+    end
 
   end
 
