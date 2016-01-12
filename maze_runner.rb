@@ -15,11 +15,14 @@ class MazeRunner
   # maze has already been processed at this stage
   def initialize(maze_object)
     @maze = maze_object.processed_maze
+    @maze_start = @maze.start_vertical
+    @maze_start = @maze.start_horizontal
   end
 
   # all the possible movements: look right, down, left, up
   # either update current position or give new position
   # getting vertical and horizontal coordinates w/i the maze
+  # have these "if" checks b/c need to protect against wrap-around in array
   def check_up(vertical, horizontal)
     @maze[vertical - 1][horizontal] if (vertical - 1) >= 0
   end
@@ -38,17 +41,20 @@ class MazeRunner
 
 
   # "position" is an array with two elements, formatted [y, x] coordinates
+  # input: current_position
+  # output: "X" in array marking space, new position
   # movement returns a new position
-  def move_right(current_position)
+
+  def move_right(vertical, horizontal)
   end
 
-  def move_down(current_position)
+  def move_down(vertical, horizontal)
   end
 
-  def move_left(current_position)
+  def move_left(vertical, horizontal)
   end
 
-  def move_up(current_position)
+  def move_up(vertical, horizontal)
   end
 
 end
