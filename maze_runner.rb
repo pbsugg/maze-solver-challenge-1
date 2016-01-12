@@ -11,12 +11,13 @@ require_relative 'maze.rb'
 class MazeRunner
 
   attr_accessor :maze
+  attr_reader :start_vertical, :start_horizontal
 
   # maze has already been processed at this stage
   def initialize(maze_object)
     @maze = maze_object.processed_maze
-    @maze_start = @maze.start_vertical
-    @maze_start = @maze.start_horizontal
+    @start_vertical = maze_object.start_vertical
+    @start_horizontal = maze_object.start_horizontal
   end
 
   # all the possible movements: look right, down, left, up
@@ -46,15 +47,39 @@ class MazeRunner
   # movement returns a new position
 
   def move_right(vertical, horizontal)
+    if @maze[vertical][horizontal + 1] == "."
+      @maze[vertical][horizontal + 1] = "x"
+      [vertical, horizontal + 1]
+    else
+      [vertical, horizontal]
+    end
   end
 
   def move_down(vertical, horizontal)
+    if @maze[vertical + 1][horizontal] == "."
+      @maze[vertical + 1][horizontal] = "x"
+      [vertical + 1, horizontal]
+    else
+      [vertical, horizontal]
+    end
   end
 
   def move_left(vertical, horizontal)
+    if @maze[vertical][horizontal - 1] == "."
+      @maze[vertical][horizontal - 1] = "x"
+      [vertical, horizontal - 1]
+    else
+      [vertical, horizontal]
+    end
   end
 
   def move_up(vertical, horizontal)
+    if @maze[vertical - 1][horizontal] == "."
+      @maze[vertical - 1][horizontal] = "x"
+      [vertical - 1, horizontal]
+    else
+      [vertical, horizontal]
+    end
   end
 
 end

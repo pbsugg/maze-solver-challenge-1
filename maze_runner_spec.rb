@@ -66,7 +66,7 @@ describe "MazeRunner" do
 
     it "changes the array object to an X if movement possible" do
       maze_runner.move_down(start_position[0], start_position[1])
-      expect(maze_runner.processed_maze[1][0]).to eq("x")
+      expect(maze_runner.maze[1][0]).to eq("x")
     end
 
     it "returns the new position if movement possible" do
@@ -80,7 +80,7 @@ describe "MazeRunner" do
 
     it "does not change the board if movement not possible" do
       maze_runner.move_right(start_position[0], start_position[1])
-      expect(maze_runner.processed_maze[0][1]).to eq("#")
+      expect(maze_runner.maze[0][1]).to eq("#")
     end
 
   end
