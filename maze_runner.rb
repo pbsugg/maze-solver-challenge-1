@@ -113,14 +113,20 @@ class MazeRunner
   # this will move one space if possible
   # input: current space
   # output: new space OR nil if no movement possible
-  def move(vertical, horizontal)
+  def move_df(vertical, horizontal)
     return move_right(vertical, horizontal) if check_right(vertical, horizontal)
     return move_down(vertical, horizontal) if check_down(vertical, horizontal)
     return move_left(vertical, horizontal) if check_left(vertical, horizontal)
     return move_up(vertical, horizontal) if check_up(vertical, horizontal)
+    nil
   end
 
+  # how do you know that it's really not solvable?
+
   def df_solve(vertical, horizontal)
+    solvable = true
+    while move_df(vertical, horizontal) != [nil, nil]
+
   end
 
 end
