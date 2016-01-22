@@ -31,11 +31,11 @@ class Maze
   # get the starting node of the maze
   def get_start(processed_maze)
     # start_horizontal; start_vertical = nil
-    processed_maze.each_with_index do |row, row_index|
-      row.each_with_index do |item, item_index|
+    processed_maze.each_with_index do |row, vertical_index|
+      row.each_with_index do |item, horizontal_index|
         if item == 'o'
-          @start_vertical = row_index
-          @start_horizontal = item_index
+          @start_vertical = vertical_index
+          @start_horizontal = horizontal_index
         end
       end
     end
