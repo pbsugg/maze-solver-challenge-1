@@ -6,8 +6,6 @@ require_relative 'maze.rb'
 # current_vertical = "y-coordinate"
 
 
-
-
 class MazeRunner
 
   attr_accessor :maze
@@ -28,36 +26,45 @@ class MazeRunner
   # have these "if" checks b/c need to protect against wrap-around in array
   def check_up(vertical, horizontal)
     space = @maze[vertical - 1][horizontal] if (vertical - 1) >= 0
-    return true if space == "."
+    if space == "." || space == "x"
+      return true
+    end
     false
   end
 
   def check_right(vertical, horizontal)
     space = @maze[vertical][horizontal + 1] if (horizontal + 1) >= 0
-    return true if space == "."
+    if space == "." || space == "x"
+      return true
+    end
     false
   end
 
   def check_down(vertical, horizontal)
     space = @maze[vertical + 1][horizontal] if (vertical + 1) >= 0
-    return true if space == "."
+    if space == "." || space == "x"
+      return true
+    end
     false
   end
 
   def check_left(vertical, horizontal)
     space = @maze[vertical][horizontal - 1] if (horizontal - 1) >= 0
-    return true if space == "."
+    if space == "." || space == "x"
+      return true
+    end
     false
   end
 
 
   # "position" is an array with two elements, formatted [y, x] coordinates
   # input: current_position
-  # output: "X" in array marking space, new position
+  # output: if space == "." in array marking space, new position
   # movement returns a new position
 
   def move_right(vertical, horizontal)
-    if @maze[vertical][horizontal + 1] == "."
+    one_space_right = @maze[vertical][horizontal + 1]
+    if one_space_right == "." || one_space_right == "x"
       @maze[vertical][horizontal + 1] = "x"
       [vertical, horizontal + 1]
     else
@@ -66,7 +73,8 @@ class MazeRunner
   end
 
   def move_down(vertical, horizontal)
-    if @maze[vertical + 1][horizontal] == "."
+    one_space_down = @maze[vertical + 1][horizontal]
+    if  one_space_down == "." || one_space_down == "x"
       @maze[vertical + 1][horizontal] = "x"
       [vertical + 1, horizontal]
     else
@@ -75,7 +83,8 @@ class MazeRunner
   end
 
   def move_left(vertical, horizontal)
-    if @maze[vertical][horizontal - 1] == "."
+    one_space_left = @maze[vertical][horizontal - 1]
+    if one_space_left == "." || one_space_left == "x"
       @maze[vertical][horizontal - 1] = "x"
       [vertical, horizontal - 1]
     else
@@ -84,7 +93,8 @@ class MazeRunner
   end
 
   def move_up(vertical, horizontal)
-    if @maze[vertical - 1][horizontal] == "."
+    one_space_up =  @maze[vertical][horizontal - 1]
+    if one_space_up == "." || one_space_up == "x"
       @maze[vertical - 1][horizontal] = "x"
       [vertical - 1, horizontal]
     else
